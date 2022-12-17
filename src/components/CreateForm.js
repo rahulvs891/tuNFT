@@ -59,7 +59,59 @@ function CreateForm() {
             <label>
                 Want to upload lyrics
             </label>
-            <input type='radio'></input>
+            <div className='yes-no'>
+            <label>yes
+            <input id='radio'type='radio'/>
+            </label>
+            <label>no
+            <input id='radio'type='radio'/>
+            </label>
+            </div>
+            <label>
+            Type of Lyrics
+            </label>
+            <select name="genre" id="genre" value="select here">
+                <option value="">select here</option>
+                <option value="">Rhyming</option>
+                <option value="">Non-Rhymimg</option>
+            </select>
+            <label>
+            Lyrics
+            </label>
+            <input type='text' id='para'/>
+            <label>
+            Background
+            </label>
+            <input type='text' id='para'/>
+        </div>
+        <div className='details'>
+            <label>
+            Frequency Type
+            </label>
+            <select name="genre" id="genre" value="select here">
+                <option value="">select here</option>
+                
+                <option value="">select here</option>
+                <option value="">Bass heavy</option>
+                <option value="">Treble heavy</option>
+                <option value="">Mids heavy</option>
+            </select>
+            <label>
+            Is the song sample based?
+            </label>
+            <select name="genre" id="genre" value="select here">
+                <option value="">select here</option>
+                <option value="">Yes</option>
+                <option value="">No</option>
+            </select>
+            <label>
+            Type Of Instruments used
+            </label>
+            <select name="genre" id="genre" value="select here">
+                <option value="">select here</option>
+                <option value="">Real Instruments</option>
+                <option value="">Digital Instruments</option>
+            </select>
         </div>
         </div>
     </div>
