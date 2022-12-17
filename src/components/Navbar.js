@@ -1,10 +1,15 @@
 import React from "react";
 import "../styles/Navbar.css";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { MdOutlineSegment } from "react-icons/md";
 function Navbar() {
+  let activeStyle = {
+    color: "black",
+  };
+
+  let activeClassName = "underline";
   return (
     <div className="navbar">
       <img src={logo} className="logo" alt="" />
@@ -20,9 +25,12 @@ function Navbar() {
         </Link>
       </ul>
       <ul>
-        <Link to="/create">
-          <li>Create</li>
-        </Link>
+        <NavLink
+          to="/create"
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        >
+          Create
+        </NavLink>
         <Link to="/dashboard">
           <li>Dashboard</li>
         </Link>

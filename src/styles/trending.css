@@ -1,0 +1,7 @@
+.trending-container{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    color: beige;
+    background: red;
+}
