@@ -47,6 +47,9 @@
 .details #para{
     height: 10rem;
 }
+.details #fileToUpload{
+    color: rgb(105, 104, 104);
+}
 .yes-no{
     display: flex;
     flex-direction: row;
