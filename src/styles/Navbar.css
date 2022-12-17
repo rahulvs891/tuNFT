@@ -8,7 +8,7 @@
     position: sticky;
     top: 0px;
     width: 100%;
-    padding-top: 30px;
+    padding: 20px;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -38,12 +38,7 @@
 
 .navbar .logo {
     font-weight: bold;
-    margin-top: -6px;
     height: 2rem;
     margin-left: 3rem;
     margin-right: 7rem;
-}
-.navbar ul #more{
-    font-size: 2rem;
-    margin-right: 1rem;
 }
