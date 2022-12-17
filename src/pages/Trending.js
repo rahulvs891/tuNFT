@@ -4,13 +4,9 @@ import "../styles/trending.css";
 
 const Trending = () => {
   return (
-    <>
+    <div className="trending">
       <Navbar />
-      <div className="trending-container">
-        <h3>Trending</h3>
-        <p>Card</p>
-      </div>
-    </>
+    </div>
   );
 };
 
