@@ -1,0 +1,7 @@
+.create{
+    background: url(../assets/background.png);
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    width: auto;
+}

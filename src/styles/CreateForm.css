@@ -1,0 +1,60 @@
+.create-songs{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 5rem;
+    font-family: 'Lato', sans-serif;
+}
+.details{
+    border-radius: 15px;
+    height: 60vh;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.169);
+    flex-direction: column;
+    padding:20px;
+    gap: 1rem;
+}
+.details h2{
+    color: white;
+    font-size: 20px;
+}
+.details form{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 1rem;
+    gap: 7px;
+    margin-right:20px ;
+    flex-direction: column;
+}
+.details input{
+    font: inherit;
+    padding: 0.5rem;
+    background-color: rgba(21, 13, 13, 0.354);
+    border-radius: 10px;
+    width: 20rem;
+    border: none;
+    max-width: 100%;
+}
+.details label{
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+.song-details .details{
+    border-radius: 0;
+    background-color:transparent;
+}
+.song-details{
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.169);
+}
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    width: 20rem;
+}
