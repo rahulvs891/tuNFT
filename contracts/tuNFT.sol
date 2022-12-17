@@ -109,8 +109,8 @@ contract tuNFT is ERC721, ReentrancyGuard {
         require(bytes(_songName).length > 0, "Song name cannot be empty");
         require(bytes(_artistName).length > 0, "Artist name cannot be empty");
         require(_price > 0, "Price must be at least 1 wei");
-        require(bytes(_imgHash).length > 0, "Cover image must be provided");
-        require(bytes(_songHash).length > 0, "Song must be provided");
+        // require(bytes(_imgHash).length > 0, "Cover image must be provided");
+        // require(bytes(_songHash).length > 0, "Song must be provided");
 
         songsCount += 1;
         uint256 _createTime = block.timestamp;
