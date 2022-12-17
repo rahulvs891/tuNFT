@@ -37,7 +37,8 @@ function CreateForm() {
                 <label>
                 Genre
                 </label>
-                <select name="genre" id="genre">
+                <select name="genre" id="genre" value="select here">
+                    <option value="">select here</option>
                     <option value="">Pop</option>
                     <option value="">Rap</option>
                     <option value="">Classical</option>
@@ -47,6 +48,18 @@ function CreateForm() {
         </div>
         <div className='details'>
             <h2>Other Details</h2>
+            <label>
+                Type of song
+                </label>
+                <select name="genre" id="genre" value="select here">
+                    <option value="">select here</option>
+                    <option value="">Metaphorical</option>
+                    <option value="">Literal</option>
+                </select>
+            <label>
+                Want to upload lyrics
+            </label>
+            <input type='radio'></input>
         </div>
         </div>
     </div>
