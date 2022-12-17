@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import React from 'react';
 import '../styles/Navbar.css';
 import logo from '../assets/logo.png';
 import { NavLink} from 'react-router-dom';
 
+=======
+import React from "react";
+import "../styles/Navbar.css";
+import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+
+import { MdOutlineSegment } from "react-icons/md";
+>>>>>>> eecd7710ab8eac0bde64e568c1030fa3887dd08e
 function Navbar() {
   let activeStyle = {
     textDecoration:"underline",
@@ -24,4 +33,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;

@@ -12,6 +12,8 @@
     height: auto;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    align-content: center;
     justify-content: space-around;
     padding-bottom: 15px;
 }
