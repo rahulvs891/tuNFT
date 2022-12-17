@@ -1,0 +1,29 @@
+.footer {
+    background-color: rgb(27, 27, 27);
+    color: white;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin-top: 5rem;
+    justify-content: space-evenly;
+}
+
+.list {
+    list-style: none;
+    line-height: 30px;
+    color: rgb(172, 172, 172);
+}
+
+.list h3 {
+    font-size: 20px;
+    color: white;
+}
+.footer .footer-items .social{
+    font-size: 2rem;
+    display: flex;
+    padding-top: 2rem;
+    flex-direction: row;
+    gap: 1rem;
+}
