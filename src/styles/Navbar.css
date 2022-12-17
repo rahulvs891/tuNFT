@@ -2,13 +2,26 @@
     padding: 0;
     margin: 0;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+.active{
+    color: #EA06F8 !important;
+    border-bottom: 2px solid #EA06F8;
+    padding-bottom: 3px
+}
 
 .navbar {
     background-color: rgba(255, 255, 255, 0.169);
     position: sticky;
-    top: 0px;
+    top: 0;
     width: 100%;
-    padding-top: 30px;
+    padding: 20px;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -18,7 +31,7 @@
     padding-bottom: 15px;
 }
 
-.navbar ul {
+.navbar .list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -27,7 +40,7 @@
     width: auto;
 }
 
-.navbar li {
+.unactive {
     cursor: pointer;
     flex-wrap: nowrap;
     float: right;
@@ -40,12 +53,7 @@
 
 .navbar .logo {
     font-weight: bold;
-    margin-top: -6px;
     height: 2rem;
     margin-left: 3rem;
     margin-right: 7rem;
-}
-.navbar ul #more{
-    font-size: 2rem;
-    margin-right: 1rem;
 }
