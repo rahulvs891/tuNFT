@@ -37,6 +37,13 @@ function CreateForm() {
                 <label>
                 Genre
                 </label>
+                <select name="genre" id="genre">
+                    <option value="">Pop</option>
+                    <option value="">Rap</option>
+                    <option value="">Classical</option>
+                    <option value="">Indian</option>
+                    <option value="">Cultural</option>
+                </select>
         </div>
         <div className='details'>
             <h2>Other Details</h2>
