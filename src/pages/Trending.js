@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const Landing = () => {
+const Trending = () => {
   return (
     <>
       <Navbar />
@@ -9,4 +9,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Trending;
