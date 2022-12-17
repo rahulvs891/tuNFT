@@ -10,10 +10,12 @@ function CreateForm() {
     }
   };
   return (
+    <div className="create-form">
+        <form  method="post" enctype="multipart/form-data">
     <div className="create-songs">
       <div className="details">
         <h2>Create your NFT</h2>
-        <form>
+        <input type="file" name="fileToUpload" id="fileToUpload"/>
           <label>ISRC Number</label>
           <input type="text" placeholder="Enter ISRC number" />
           <label>Song Name</label>
@@ -22,7 +24,6 @@ function CreateForm() {
           <input type="text" placeholder="Enter your name" />
           <label>Price</label>
           <input type="text" placeholder="Enter Price in MATIC" />
-        </form>
       </div>
       <div className="song-details">
         <div className="details">
@@ -112,6 +113,11 @@ function CreateForm() {
         </div>
       </div>
     </div>
+    <div className="create-submit">
+        <input type="submit" value="Submit" name="submit" id="submit" />
+    </div>
+      </form>
+      </div>
   );
 }
 
