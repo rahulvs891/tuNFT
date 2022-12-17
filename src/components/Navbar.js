@@ -1,9 +1,14 @@
 import React from "react";
 import "../styles/Navbar.css";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
+  let activeStyle = {
+    textDecoration: "underline",
+  };
+
+  let activeClassName = "underline";
   return (
     <div className="navbar">
       <img src={logo} className="logo" alt="" />
