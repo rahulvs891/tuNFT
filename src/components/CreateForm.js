@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment , useRef} from "react";
 import axios from "axios";
 import '../styles/CreateForm.css';
-import { BigNumber, providers, utils } from "ethers";
+import { BigNumber, providers, utils, Contract } from "ethers";
 import Web3Modal from "web3modal";
 import {
     CONTRACT_ABI,
@@ -19,6 +19,7 @@ function CreateForm() {
     };
     const [showCreateError, setShowCreateError] = useState(false);
 	const [spotifyAPIToken, setSpotifyAPIToken] = useState("");
+  const web3ModalRef = useRef();
 	const [isrcNumber, setIsrcNumber] = useState("");
 	const [songName, setSongName] = useState("");
 	const [artistName, setArtistName] = useState("");
@@ -36,7 +37,7 @@ function CreateForm() {
           const signer = await getProviderOrSigner(true);
     
           // Create a new instance of the contract
-          const contract = new ethers.Contract(
+          const contract = new Contract(
             CONTRACT_ADDRESS,
             CONTRACT_ABI,
             signer
@@ -60,15 +61,6 @@ function CreateForm() {
           setShowCreateError(true);
         }
       }
-      const connectWallet = async()=>{
-        try{
-          await getProviderOrSigner();
-          setWalletConnected(true);
-        }
-        catch(err){
-          console.error(err);
-        }
-      };
       const getProviderOrSigner = async (needSigner = false) => {
         // Connect to Metamask
         // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
@@ -89,20 +81,9 @@ function CreateForm() {
         return web3Provider;
       };
 
-      useEffect(() => {
-        // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
-        if (!walletConnected) {
-          // Assign the Web3Modal class to the reference object by setting it's `current` value
-          // The `current` value is persisted throughout as long as this page is open
-          web3ModalRef.current = new Web3Modal({
-            network: "rinkeby",
-            providerOptions: {},
-            disableInjectedProvider: false,
-          });
-          connectWallet();
-          getAmounts();
-        }
-      }, [walletConnected]);
+      
+
+      
   return (
     <div className="create-form">
         <form  method="post" enctype="multipart/form-data">
@@ -211,6 +192,7 @@ function CreateForm() {
         <input type="submit" value="Submit" name="submit" id="submit" />
     </div>
       </form>
+      {/* {renderButton()} */}
       </div>
   );
 }
