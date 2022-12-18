@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Chats from "./pages/Chats";
 import Create from "./pages/Create";
 import Trending from "./pages/Trending";
+import Dashboard from "./pages/Dashboard";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
           <Route path="/chat" element={<Chats />} />
           <Route path="/create" element={<Create />} />
           <Route path="/trending" element={<Trending />} />
+          <Route path='/dashboard' element={<Dashboard/>} />
         </Routes>
       </BrowserRouter>
     </div>

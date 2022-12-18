@@ -1,0 +1,73 @@
+.dashboard-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin: 2rem;
+    background: #1D1E1F;
+    border-radius: 2rem;
+}
+.dashboard-content{
+    margin: 1.5rem;
+}
+#heading{
+    font-size: 4rem;
+    color: aliceblue;
+}
+.remaining-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2.5rem;
+}
+.owned-NFTs{
+    background: #1D1E1F;
+    width: 45vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+.created-NFTs{
+    background: #1D1E1F;
+        width: 45vw;
+        height: 20vh;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        color: #FFFFFF;
+}
+.nft-heading{
+    font-size: 2rem;
+}
+.button{
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+        border-radius: 8px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        flex-shrink: 0;
+        font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        height: 3rem;
+        width: 15rem;
+        padding: 0 1.6rem;
+        text-align: center;
+        text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+        transition: all .5s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+}
