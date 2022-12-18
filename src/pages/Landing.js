@@ -1,68 +1,66 @@
-import React, { useState, useEffect, Fragment , useRef} from "react";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { BigNumber, providers, utils, Contract } from "ethers";
-import Web3Modal from "web3modal";
-
+import musicplayer from "../assets/musicplayer.png";
+import forms from "../assets/forms.png";
+import "../styles/Landing.css";
+import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Landing = () => {
-  const [walletConnected, setWalletConnected] = useState(false);
-  const connectWallet = async()=>{
-    try{
-      await getProviderOrSigner();
-      setWalletConnected(true);
-    }
-    catch(err){
-      console.error(err);
-    }
-  };
   useEffect(() => {
-    // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
-    if (!walletConnected) {
-      // Assign the Web3Modal class to the reference object by setting it's `current` value
-      // The `current` value is persisted throughout as long as this page is open
-      Web3Modal.current = new Web3Modal({
-        network: "rinkeby",
-        providerOptions: {},
-        disableInjectedProvider: false,
-      });
-      connectWallet();
-    }
-  }, [walletConnected]);
-  const getProviderOrSigner = async (needSigner = false) => {
-    // Connect to Metamask
-    // Since we store `web3Modal` as a reference, we need to access the `current` value to get access to the underlying object
-    const provider = await Web3Modal.current.connect();
-    const web3Provider = new providers.Web3Provider(provider);
-
-    // If user is not connected to the Rinkeby network, let them know and throw an error
-    const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 80001) {
-      window.alert("Change the network to polygon mumbai");
-      throw new Error("Change network to polygon mumbai");
-    }
-
-    if (needSigner) {
-      const signer = web3Provider.getSigner();
-      return signer;
-    }
-    return web3Provider;
-  };
-  const renderButton = () => {
-    // If wallet is not connected, return a button which allows them to connect their wllet
-    if (!walletConnected) {
-      return (
-        <button onClick={connectWallet}>
-          Connect your wallet
-        </button>
-      );
-    }
-  }
+    AOS.init();
+  }, []);
   return (
-    <>
-      <Navbar/>
-      <button onClick={connectWallet}>
-          Connect your wallet
-      </button>
-    </>
+    <div className="landing">
+      <Navbar />
+      <div>
+        <div className="landing-animation" data-aos="fade-left">
+          <div className="moto">
+            <h1>tuNFT</h1>
+            <h3>MINT THE MUSIC</h3>
+          </div>
+          <div className="loader">
+            <span>dadasda</span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div className="about-site" data-aos="fade-left">
+          <img src={musicplayer} alt="offer-img" />
+          <div className="content">
+            <h1>Create and Sell your Music as an NFT</h1>
+            <p>
+              We aim to uplift musicians by enabling them to create NFTs of
+              thier music. We intend to provide them with royalties and
+              recognition that they deserve but are not able to get enough from
+              other sources.
+              <br />
+              We aim to uplift musicians by enabling them to create NFTs of
+              thier music.
+            </p>
+          </div>
+        </div>
+        <div className="about-create">
+          <img src={forms} alt="offer-img" />
+          <div className="create-content">
+            <h1>Creating NFTs is so easy</h1>
+            <p>
+              Making the process of Creating and Selling NFTs easy has always
+              been our main goal. Our website UI places things that matter the
+              most.
+            </p>
+            <NavLink to="/create" className="unactive" activeClassName="active">
+              <button name="submit" id="submit">
+                create
+              </button>
+            </NavLink>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
   );
 };
 

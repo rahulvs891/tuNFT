@@ -8,6 +8,7 @@ import {
     CONTRACT_ABI,
     CONTRACT_ADDRESS,
   } from "../constants";
+const ipfsClient = require("ipfs-http-client");
 
 function CreateForm() {
     const [status, setStatus] = useState("yes");
@@ -65,6 +66,12 @@ function CreateForm() {
         setInstrument(event.target.value)
     }
 
+    const ipfs = ipfsClient({
+      host: "ipfs.infura.io",
+      port: 5001,
+      protocol: "https",
+    });
+
     const selectHandler = () => {
       if (status === "yes") {
         setStatus("no");
@@ -105,7 +112,7 @@ function CreateForm() {
     }
   return (
     <div className="create-form">
-        <form enctype="multipart/form-data" onSubmit={submitHandler}>
+        <form enctype="multipart/form-data" onSubmit={submitHandler}/>
     <div className="create-songs">
       <div className="details">
         <h2>Create your NFT</h2>
@@ -219,28 +226,89 @@ function CreateForm() {
       </div>
     </div>
     <div className="create-submit">
-        <input type="submit" value="Submit" name="submit" id="submit" onClick={async()=>{
-          try{
-          setTimeout(async()=>{
-
-            console.log("enteres data",enteredData[0])
-            const contract = await accountFn();
-            //let amount_wei = new BigNumber(enteredData[0].price).shiftedBy(18).toString()
-          var res1 =await contract.createSong(
-            enteredData[0].songname,
-            enteredData[0].artistname,
-            enteredData[0].price)
-            console.log(res1);
-          },2000)
-          
-          }catch(err){
-            console.log(err)
-          }
-        }}/>
-    </div>
-      </form>
-      {/* {renderButton()} */}
+        <div className="terms"><input type='checkbox' />I hereby declare that this piece of music is my own creation and if any case of copyright infringement is reported, I will solely be held responsible for the consequences.</div>
+        <div className="terms"><input type='checkbox' />I have read all terms of use and the privacy policy and I agree to all of them.</div>
       </div>
+        <input type="submit" value="Submit" name="submit" id="submit" onClick={async()=>{
+          const contract = await accountFn();
+          await ipfs.add(imageBuffer, async (error, _imgResult) => {
+            console.log("_imgResult:", _imgResult);
+            if (error) {
+                console.error(error);
+                return;
+            }
+            _imgHash = _imgResult[0].hash;
+            console.log("imgHash:", _imgHash);
+
+            ipfs.add(songBuffer, async (error, _songResult) => {
+                console.log("_songResult:", _songResult);
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+                _songHash = _songResult[0].hash;
+                console.log("_songHash:", _songHash);
+
+                ipfs.add(descriptionBuffer, async (error, _descriptionResult) => {
+                    console.log("_descriptionResult:", _descriptionResult);
+                    if (error) {
+                        console.error(error);
+                        return;
+                    }
+                    _descriptionHash = descriptionBuffer.equals(Buffer(enc.encode("-"))) ? [] : _descriptionResult[0].hash;
+                    console.log("_descriptionHash:", _descriptionHash);
+
+                    ipfs.add(lyricsBuffer, async (error, _lyricsResult) => {
+                        console.log("_lyricsResult:", _lyricsResult);
+                        if (error) {
+                            console.error(error);
+                            return;
+                        }
+                        _lyricsHash = lyricsBuffer.equals(Buffer(enc.encode("-"))) ? [] : _lyricsResult[0].hash;
+                        console.log("_lyricsHash:", _lyricsHash);
+
+                        const transactionParameters = {
+                            to: contractAddress, 
+                            from: account, 
+                            data: accountFn
+                                .createSong(
+                                    _name,
+                                    _artistName,
+                                    window.web3.utils.toWei(_price, "Ether"),
+                                    _imgHash,
+                                    _songHash,
+                                    _descriptionHash,
+                                    _lyricsHash,
+                                    _onSale,
+                                    _links,
+                                    _characteristics
+                                )
+                                .encodeABI(), 
+                        };
+                        try {
+                            const txHash = await window.ethereum.request({
+                                method: "eth_sendTransaction",
+                                params: [transactionParameters],
+                            });
+                            setLoading(false);
+                            setShowCreateSuccess(true);
+                            return {
+                                success: true,
+                            };
+                        } catch (error) {
+                            setLoading(false);
+                            setShowError(true);
+                            return {
+                                success: false,
+                                status: "Something went wrong: " + error.message,
+                            };
+                        }
+                    });
+                });
+            });
+        });
+        }} />
+    </div>
   );
 }
 

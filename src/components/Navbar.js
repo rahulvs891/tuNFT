@@ -11,14 +11,14 @@ function Navbar() {
   let activeClassName = "underline";
   return (
     <div className="navbar">
-      <img src={logo} className="logo" alt="" />
+      <Link to="/"><img src={logo} className="logo" alt="" /></Link>
       <list>
         <NavLink
-          to="/"
+          to="/trending"
           className="unactive"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          Home
+          Trending
         </NavLink>
         <NavLink
           to="/library"
@@ -28,11 +28,11 @@ function Navbar() {
           Library
         </NavLink>
         <NavLink
-          to="/trending"
+          to="/"
           className="unactive"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
         >
-          Trending
+          Home
         </NavLink>
       </list>
       <list>
