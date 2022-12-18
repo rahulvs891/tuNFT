@@ -213,6 +213,10 @@ function CreateForm() {
       </div>
     </div>
     <div className="create-submit">
+      <div>
+        <div className="terms"><input type='checkbox' />I hereby declare that this piece of music is my own creation and if any case of copyright infringement is reported, I will solely be held responsible for the consequences.</div>
+        <div className="terms"><input type='checkbox' />I have read all terms of use and the privacy policy and I agree to all of them.</div>
+      </div>
         <input type="submit" value="Submit" name="submit" id="submit" />
     </div>
       </form>
