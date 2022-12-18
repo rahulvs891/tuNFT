@@ -11,7 +11,7 @@ function Navbar() {
   let activeClassName = "underline";
   return (
     <div className="navbar">
-      <img src={logo} className="logo" alt="" />
+      <Link to="/"><img src={logo} className="logo" alt="" /></Link>
       <list>
         <NavLink
           to="/trending"

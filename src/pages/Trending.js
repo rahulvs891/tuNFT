@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles/trending.css";
 import data from "../data/data";
 import Card from "../components/Card";
+import Footer from "../components/Footer";
 
 const Trending = () => {
   const cardElements = data.map((data) => {
@@ -15,6 +16,7 @@ const Trending = () => {
         <h3 style={{ color: "#EA06F8", marginLeft: "3rem" }}>Trending</h3>
         <section className="cards-list">{cardElements}</section>
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -29,7 +29,7 @@ function Footer() {
         <ul className='list'>
             <li><h3>Support</h3></li>
             <li>Contact Us</li>
-            <li>Report a Bug</li>
+            <li onClick={()=>alert("reported a bug successfully")}>Report a Bug</li>
         </ul>
       </div>
       <div className='footer-items'>
