@@ -1,46 +1,65 @@
-import React from "react";
-import {NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import musicplayer from "../assets/musicplayer.png";
 import forms from "../assets/forms.png";
-import '../styles/Landing.css';
+import "../styles/Landing.css";
 import Footer from "../components/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Landing = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="landing">
       <Navbar />
-      <div >
-      <div className="landing-animation">
-        <div className="moto">
-        <h1>tuNFT</h1>
-        <h3>MINT THE MUSIC</h3>
+      <div>
+        <div className="landing-animation" data-aos="fade-left">
+          <div className="moto">
+            <h1>tuNFT</h1>
+            <h3>MINT THE MUSIC</h3>
+          </div>
+          <div className="loader">
+            <span>dadasda</span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-      <div className="loader">
-          <span>dadasda</span>
-          <span></span>
-          <span></span>
-          <span></span>
-      </div>
-      </div>
-      <div className="about-site">
-            <img src={musicplayer} alt="offer-img"/>
-            <div className="content">
+        <div className="about-site" data-aos="fade-left">
+          <img src={musicplayer} alt="offer-img" />
+          <div className="content">
             <h1>Create and Sell your Music as an NFT</h1>
-            <p>We aim to uplift musicians by enabling them to create NFTs of thier music. We intend to provide them with royalties and recognition that they deserve but are not able to get enough from other sources.<br/>We aim to uplift musicians by enabling them to create NFTs of thier music.</p>
-            </div>
-    </div>
-      <div className="about-create">
-            <img src={forms} alt="offer-img"/>
-            <div className="create-content">
+            <p>
+              We aim to uplift musicians by enabling them to create NFTs of
+              thier music. We intend to provide them with royalties and
+              recognition that they deserve but are not able to get enough from
+              other sources.
+              <br />
+              We aim to uplift musicians by enabling them to create NFTs of
+              thier music.
+            </p>
+          </div>
+        </div>
+        <div className="about-create">
+          <img src={forms} alt="offer-img" />
+          <div className="create-content">
             <h1>Creating NFTs is so easy</h1>
-            <p>Making the process of Creating and Selling NFTs easy has always been our main goal. Our website UI places things that matter the most.</p>
+            <p>
+              Making the process of Creating and Selling NFTs easy has always
+              been our main goal. Our website UI places things that matter the
+              most.
+            </p>
             <NavLink to="/create" className="unactive" activeClassName="active">
-        <button name="submit" id="submit">create</button>
-        </NavLink>
-            </div>
-    </div>
+              <button name="submit" id="submit">
+                create
+              </button>
+            </NavLink>
+          </div>
+        </div>
       </div>
-    <Footer/>
+      <Footer />
     </div>
   );
 };
