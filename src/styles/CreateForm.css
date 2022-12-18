@@ -33,6 +33,7 @@
 .details input{
     font: inherit;
     padding: 0.5rem;
+    color: white;
     background-color: rgba(21, 13, 13, 0.354);
     border-radius: 10px;
     width: 20rem;
